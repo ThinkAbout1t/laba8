@@ -1,0 +1,21 @@
+import numpy as np
+n = 3
+a=np.zeros((n,n),dtype=int)
+for i in range(n):
+    for j in range(n):
+        a[i][j]=float(input(f'A[{i}][{j}]='))
+print(a)
+k = 3
+b=np.zeros((k,k),dtype=int)
+for i in range(k):
+    for j in range(k):
+        b[i][j]=float(input(f'A[{i}][{j}]='))
+print(b)
+c=np.zeros((n,n),dtype=int)
+for i in range(n):
+    for j in range(n):
+        result = 0
+        for y in range(n):
+            result += a[i][y] * b[y][j]
+            c[i][j] = result
+print(c)
