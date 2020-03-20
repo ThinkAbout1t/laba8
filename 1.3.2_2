@@ -1,0 +1,54 @@
+import numpy as np
+import random
+while True:
+    flag=False
+    while True:
+        try:
+            a=np.zeros(int(input('p=')),dtype = int)
+            break
+        except ValueError:
+            print("Oops!  That was no valid number.  Try again...")
+    x=4
+    print('random or no?\nIf YES - enter \'1\'\n   NO  - enter smth else')
+    result=input()
+    if result == '1':
+        for i in range (len(a)):
+            a[i]= random.randint(-5,5)
+    else:
+        for i in range (len(a)):
+            while True:
+                try:
+                    a[i] = int(input(f'A[{i}]='))
+                    break
+                except ValueError:
+                    print("Oops!  That was no valid number.  Try again...")
+    print(a)
+    a=sorted(a)
+    print(a)
+    l=0
+    r=len(a)-1
+    k=0
+    c=1
+    while l<=r and not flag:
+        k=(l+r)//2
+        c+=2
+        if a[k]==x:
+            flag=True
+            c+=1
+        elif (a[k]<x):
+            l=k+1
+            c+=2
+        else:
+            r=k-1
+            c+=3
+    if not flag:
+        print('Елемент не знайдений')
+    else:
+        print(f'Елемент {x} знайдений на позиції {k}')
+    print('kol porivnyan',c)
+    print(f'Do you want to restart your program?\nIf YES - enter \'1\'\n   NO  - enter smth else')
+    answer = input()
+    if answer == '1':
+        continue
+    else:
+        break
