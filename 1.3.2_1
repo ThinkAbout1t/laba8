@@ -1,5 +1,9 @@
+import timeit
+setup='''
 import numpy as np
 import random
+'''
+stmt='''
 while True:
     while True:
         try:
@@ -8,7 +12,7 @@ while True:
         except ValueError:
             print("Oops!  That was no valid number.  Try again...")
     x=4
-    print('random or no?\nIf YES - enter \'1\'\n   NO  - enter smth else')
+    print('random or no?   If YES - enter 1   NO  - enter smth else')
     result=input()
     if result == '1':
         for i in range (len(a)):
@@ -35,9 +39,11 @@ while True:
     else:
         print(f'Елемент {x} знайдений на позиції {i}')
     print('kol porivnyan',c)
-    print(f'Do you want to restart your program?\nIf YES - enter \'1\'\n   NO  - enter smth else')
+    print(f'Do you want to restart your program?  If YES - enter 1   NO  - enter smth else')
     answer = input()
     if answer == '1':
         continue
     else:
         break
+        '''
+print(timeit.timeit(stmt=stmt,setup=setup,number=1))
