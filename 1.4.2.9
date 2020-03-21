@@ -1,0 +1,53 @@
+while True:
+    maraka=[]
+    sername=[]
+    nomer=[]
+    z_sername=[]
+    while True:
+        try:
+            n=int(input('Kolichestvo mashin:'))
+            break
+        except ValueError:
+            print("Oops!  That was no valid number.  Try again...")
+    for i in range(n):
+        q=input(f'marka mashini №{i+1}:')
+        maraka.append(q)
+        w = input(f'sername vladelca mashini №{i + 1}:')
+        sername.append(w)
+        while True:
+            try:
+                e = int(input(f'nomer mashini №{i + 1}:'))
+                break
+            except ValueError:
+                print("Oops!  That was no valid number.  Try again...")
+        nomer.append(e)
+    d_sername={k: v for (k, v) in zip(sername, maraka)}
+    d_nomer={k: v for (k, v) in zip(nomer, maraka)}
+    zadana=input('vedit marky mashini')
+    for i in d_sername.values():
+        if zadana==i:
+            z_sername.append(d_sername)
+            langs = list(d_sername.keys())
+            langs.sort()
+            for j in langs:
+                if d_sername[j]==zadana:
+                    print(j, " - ", d_sername[j])
+        else:
+            print('maraka ne znaidena')
+        break
+    for i in d_nomer.values():
+        if zadana==i:
+            kekw = list(d_nomer.keys())
+            kekw.sort()
+            for j in kekw:
+                if d_nomer[j]==zadana:
+                    print(j, " - ", d_nomer[j])
+        else:
+            print('maraka ne znaidena')
+        break
+    print(f'Do you want to restart your program?\nIf YES - enter \'1\'\n   NO  - enter smth else')
+    answer = input()
+    if answer == '1':
+        continue
+    else:
+        break
